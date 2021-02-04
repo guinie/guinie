@@ -1,0 +1,23 @@
+{
+  "name": "@guinie/common",
+  "version": "0.1.0",
+  "description": "A library of common higher-order functions for defining sequences of UI interactions and composing sequences into more complex behavior.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha './tests/**/*.test.js'"
+  },
+  "keywords": [
+    "test",
+    "testing",
+    "library",
+    "gui",
+    "frontend"
+  ],
+  "author": "Joel Luukka",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "4.2.0",
+    "mocha": "8.2.1"
+  }
+}
