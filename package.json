@@ -10,5 +10,10 @@
   "contributors": [
     { "name": "Joel Luukka" }
   ],
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guinie/guinie.git",
+    "directory": "packages/babel-cli"
+  }<
 }
