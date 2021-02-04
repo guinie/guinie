@@ -13,7 +13,9 @@
     "gui",
     "frontend"
   ],
-  "author": "Joel Luukka",
+  "contributors": [
+    { "name": "Joel Luukka" }
+  ],
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {

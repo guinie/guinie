@@ -15,7 +15,9 @@
     "frontend",
     "unit"
   ],
-  "author": "Joel Luukka",
+  "contributors": [
+    { "name": "Joel Luukka" }
+  ],
   "license": "ISC",
   "dependencies": {
     "@guinie/common": "0.1.0",

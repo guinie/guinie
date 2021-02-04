@@ -6,5 +6,9 @@
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },
-  "description": "Guinie is a set of libraries of GUI testing utilities, enabling the definition of composeable UI interaction sequences that are runnable in various UI testing contexts."
+  "description": "Guinie is a set of libraries of GUI testing utilities, enabling the definition of composeable UI interaction sequences that are runnable in various UI testing contexts.",
+  "contributors": [
+    { "name": "Joel Luukka" }
+  ],
+  "license": "ISC"
 }
