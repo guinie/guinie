@@ -1,17 +1,5 @@
 # @guinie/example
 
-<blockquote>
-  <p>
-    The Journeyman stumbled upon a simple, even trivial App. It's functions were clear, but it's immaturity evident as it was untested.
-  </p>
-  <p>
-    Drawing from what he had learned from Guinie, the Journeyman wrote down the App's functions as sequences and watched as drivers exercised the App through and through in different contexts.
-  </p>
-  <p>
-    The App was happy as it had a well established ground for growth. The Journeyman was delighted by his new abilities.
-  </p>
-</blockquote>
-
 An example web-app for demonstrating Guinie usage.
 
 ## Setup

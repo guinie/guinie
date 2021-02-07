@@ -1,14 +1,5 @@
 # @guinie/selenium
 
-<blockquote>
-  <p>
-    Guinie's pyramid turned more sophisticated toward the top. The vast base formed a level ground onto which the blocks were arranged in more elaborate patterns.
-  </p>
-  <p>
-    The bigger the base grew, the more pointed the pyramid became. Eventually, the patterns formed what looked more of an obelisk than a pyramid.
-  </p>
-</blockquote>
-
 A library of utilities for running defined sequences of interaction on a live web page using Selenium.
 
 ## Table of Contents

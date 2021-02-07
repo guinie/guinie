@@ -6,7 +6,7 @@ import {
   TextField,
   Typography as T,
 } from '@material-ui/core'
-import { makeTestIdProps } from '@guinie/react'
+import { makeTestIdProps } from '@guinie/react-testid'
 
 const getId = (() => {
   let id = 1

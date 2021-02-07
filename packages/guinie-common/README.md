@@ -1,14 +1,5 @@
 # @guinie/common
 
-<blockquote>
-  <p>
-    The Journeyman recalled two words drawn by Guinie – "sequence", "compose". Those words were not magical, but they felt like it. They were significant words.
-  </p>
-  <p>
-    But the more the Journeyman thought about the words and the more she tried to learn their meaning, the more distant and vague the words became. They were incomplete – only part of Guinie's wisdom.
-  </p>
-</blockquote>
-
 A library of common higher-order functions for defining sequences of UI interactions and composing sequences into more complex behavior.
 
 ## Table of Contents

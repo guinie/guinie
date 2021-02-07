@@ -1,14 +1,5 @@
 # @guinie/react
 
-<blockquote>
-  <p>
-    Everything Guinie inscribed in the aether revolved around the base of a testing pyramid. The base was vast, but made up of simple building blocks.
-  </p>
-  <p>
-    The Journeyman understood the base was what made Guinie's wisdom possible and concrete. Without it, everything would be nothing more than a dream.
-  </p>
-</blockquote>
-
 A library of utilities for running defined sequences of interaction on React components in a unit testing context.
 
 ## Table of Contents
@@ -28,7 +19,7 @@ A library of utilities for running defined sequences of interaction on React com
 ## Install
 
 ```
-npm install @guinie/react
+npm install -D @guinie/react
 ```
 
 ## Usage

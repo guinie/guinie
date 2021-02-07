@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Box, Button, TextField } from '@material-ui/core'
-import { makeTestIdProps } from '@guinie/react'
+import { makeTestIdProps } from '@guinie/react-testid'
 
 export const Login = ({ loginAs }) => {
   const [username, setUsername] = useState('')
