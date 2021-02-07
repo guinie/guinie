@@ -7,8 +7,6 @@ A library of utilities for running defined sequences of interaction on React com
 - [Install](#Install)
 - [Usage](#Usage)
 - [API](#API)
-  - [makeTestIdProps](#makeTestIdProps)
-  - [withTestId](#withTestId)
   - [configure](#configure)
     - [wrapDriver](#wrapDriver)
     - [context](#context)
@@ -24,46 +22,9 @@ npm install -D @guinie/react
 
 ## Usage
 
-`@guinie/react` fulfills three tasks:
-1. It provides a method for applying test identifiers to React components
-1. It provides a unit testing context for React components
-1. It provides a function for producing a driver state for React unit testing context
-
-In order for guinie test runners to operate on UI components, the components must be marked with test IDs. These IDs are necessary for any components that are read or interacted with in the by a guinie driver. To apply test IDs, the `withTestId` helper function can be used to wrap the components:
-
-```
-const { withTestId } = require('@guinie/react')
-
-const MyButton = props => { ... }
-
-const MyParentComponent = props => {
-  return (
-    <div>
-      {
-        withTestId('my-button--1')(<MyButton />)
-      }
-    </div>
-  )
-}
-```
-
-Alternatively, test ID props can be created with the `makeTestIdProps` function and then spread to a component instance:
-
-```
-const { makeTestIdProps } = require('@guinie/react')
-
-const MyButton = props => { ... }
-
-const MyParentComponent = props => {
-  return (
-    <div>
-      <MyButton {...makeTestIdProps('my-button--1')} />
-    </div>
-  )
-}
-```
-
----
+`@guinie/react` provides:
+1. A unit testing context for React components
+1. A function for producing a driver state for React unit testing context
 
 The context for React unit tests is created using the `configure` function exported by the module. This context should be passed in to interaction sequences first in test files. This can be done as a simple function call or by using the `applyContext` helper function:
 
@@ -140,18 +101,6 @@ const rendered = finalDriverState.driver
 ```
 
 ## API
-
-### makeTestIdProps
-
-`testId => Object`
-
-A utility function for producing test ID props.
-
-### withTestId
-
-`testId => ReactComponentInstance => ReactComponentInstance`
-
-A utility function for applying test IDs to React component instances.
 
 ### configure
 
