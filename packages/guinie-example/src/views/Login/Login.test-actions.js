@@ -1,5 +1,8 @@
-const { compose, sequence } = require('@guinie/react')
+const { sequence } = require('@guinie/react')
 
+// Login
+// 1. enter username to text field
+// 2. click submit
 const login = context => params => {
   const { click, type } = context
   return sequence(

@@ -1,14 +1,24 @@
 import React from 'react'
 import { act } from 'react-dom/test-utils'
-import reactContext from '@guinie/react'
+import { configure } from '@guinie/react'
 import { cleanup, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 
 import actions from './TodoMain.test-actions'
 import { TodoMain } from './index'
 
-const { wrapDriver, findElement, getElement } = reactContext
+// Extract functions from guinieReact for convenience
+const { wrapDriver, context } = configure()
 
+// Get the context bound `findElement` function from context
+const { findElement } = context
+
+// Bind login UI actions to context
+const addTodo = actions.addTodo(context)
+const toggleTodo = actions.toggleTodo(context)
+const removeTodo = actions.removeTodo(context)
+
+// A utility function for producing simple spy functions
 const makeSpy = () => {
   const calledWith = []
   const f = (...args) => calledWith.push(args)
@@ -16,51 +26,63 @@ const makeSpy = () => {
   return [f, getCalls]
 }
 
-const addTodo = actions.addTodo(reactContext)
-const toggleTodo = actions.toggleTodo(reactContext)
-const removeTodo = actions.removeTodo(reactContext)
-
 describe('TodoMain component', () => {
+  // Clean virtual component tree after eact test
   afterEach(cleanup)
 
   it('should add a todo', async () => {
+    // Get a wrapped react driverState
     const driverState = wrapDriver(<TodoMain />)
+
+    // Parameterize addTodo action with details
     const addShoppingTodo = addTodo({ title: 'Shopping' })
 
+    // Run the parameterized action on react driverState
     await act(async () => {
       const updatedDriverState = await addShoppingTodo(driverState)
     })
 
+    // Verify component behavior
     const newTodo = await findElement(`todo-list--Shopping--title`)(driverState)
     return expect(newTodo).toBeDefined()
   })
 
   it('should toggle a todo', async () => {
+    // Get a wrapped react driverState
     const driverState = wrapDriver(<TodoMain />)
+
+    // Parameterize addTodo and toggleTodo action with details
     const addShoppingTodo = addTodo({ title: 'Shopping' })
     const toggleShoppingTodo = toggleTodo({ title: 'Shopping' })
 
+    // Run the parameterized action on react driverState
     await act(async () => {
       await addShoppingTodo(driverState)
       await toggleShoppingTodo(driverState)
     })
 
+    // Verify component behavior
     const newTodo = await findElement(`todo-list--Shopping--toggle`)(driverState)
     return expect(newTodo).toBeChecked()
   })
 
   it('should remove a todo', async () => {
+    // Get a wrapped react driverState
     const driverState = wrapDriver(<TodoMain />)
+
+    // Parameterize addTodo and removeTodo action with details
     const addShoppingTodo = addTodo({ title: 'Shopping' })
     const removeShoppingTodo = removeTodo({ title: 'Shopping' })
 
+    // Run the parameterized action on react driverState
     await act(async () => {
       await addShoppingTodo(driverState)
       await removeShoppingTodo(driverState)
     })
 
+    // Verify component behavior
     try {
-      const newTodo = await getElement(`todo-list--Shopping--title`)(driverState)
+      const newTodo = await findElement(`todo-list--Shopping--title`, { timeout: 500 })(driverState)
       throw new Error('Todo found after remove action')
     } catch (err) {
       return

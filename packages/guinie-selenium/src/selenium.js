@@ -1,42 +1,30 @@
 const chrome = require('selenium-webdriver/chrome')
-const { Builder, By, until } = require('selenium-webdriver')
+const { Builder } = require('selenium-webdriver')
+const defaultConfig = require('./defaultConfig')
 
-const DEFAULT_ALIAS = '__current'
-const DEFAULT_FIND_OPTIONS = {
-  timeout: 10000
-}
 const DEFAULT_CHROME_DRIVER_OPTIONS = {
   headless: true,
 }
 
 const wrapDriver = driver => ({ driver })
 
-const _getElement = (driverState, testId, options = {}) => {
-  const _options = Object.assign({}, DEFAULT_FIND_OPTIONS, options)
-  return driverState.driver.findElement(By.xpath(`//*[@data-testid="${testId}"]`))
+const _findElement = (config, driverState, testId, options) => {
+  const element = config.findElement(driverState, testId, options)
+  return element
 }
 
-const getElement = (testId, options) => driverState => {
-  return _getElement(driverState, testId, options)
+const findElement = config => (testId, options) => driverState => {
+  return _findElement(config, driverState, testId, options)
 }
 
-const _findElement = (driverState, testId, options = {}) => {
-  const _options = Object.assign({}, DEFAULT_FIND_OPTIONS, options)
-  return driverState.driver.wait(until.elementLocated(By.xpath(`//*[@data-testid="${testId}"]`)), _options.timeout)
-}
-
-const findElement = (testId, options) => driverState => {
-  return _findElement(driverState, testId, options)
-}
-
-const type = (testId, text, options) => async driverState => {
-  const element = _findElement(driverState, testId, options)
+const type = config => (testId, text, options) => async driverState => {
+  const element = _findElement(config, driverState, testId, options)
   await element.sendKeys(text)
   return driverState
 }
 
-const click = (testId, options) => async driverState => {
-  const element = _findElement(driverState, testId, options)
+const click = config => (testId, options) => async driverState => {
+  const element = _findElement(config, driverState, testId, options)
   await element.click()
   return driverState
 }
@@ -63,14 +51,21 @@ const getChromeDriver = params => {
 
 const closeDriver = driver => driver.quit()
 
+const configure = config => {
+  const _config = Object.assign({}, defaultConfig, config)
+  return {
+    context: {
+      findElement: findElement(_config),
+      type: type(_config),
+      click: click(_config),
+    },
+    wrapDriver,
+    _findElement,
+    getChromeDriver,
+    closeDriver,
+  }
+}
+
 module.exports = {
-  wrapDriver,
-  _getElement,
-  getElement,
-  _findElement,
-  findElement,
-  type,
-  click,
-  getChromeDriver,
-  closeDriver,
+  configure,
 }

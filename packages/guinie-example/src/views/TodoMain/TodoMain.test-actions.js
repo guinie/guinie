@@ -1,5 +1,8 @@
-const { compose, sequence } = require('@guinie/react')
+const { sequence } = require('@guinie/react')
 
+// Add todo:
+// 1. type the title to text field
+// 2. click submit
 const addTodo = context => params => {
   const { click, type } = context
   return sequence(
@@ -8,6 +11,8 @@ const addTodo = context => params => {
   )
 }
 
+// Toggle todo
+// 1. click checkbox on appropriate row
 const toggleTodo = context => params => {
   const { click } = context
   return sequence(
@@ -15,6 +20,8 @@ const toggleTodo = context => params => {
   )
 }
 
+// Remove todo
+// 1. click remove-button on appropriate row
 const removeTodo = context => params => {
   const { click } = context
   return sequence(

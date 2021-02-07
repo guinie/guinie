@@ -16,10 +16,11 @@ A library of utilities for running defined sequences of interaction on a live we
 - [Install](#Install)
 - [Usage](#Usage)
 - [API](#API)
-  - [seleniumContext](#seleniumContext)
-  - [wrapDriver](#wrapDriver)
-  - [getChromeDriver](#getChromeDriver)
-  - [closeDriver](#closeDriver)
+  - [configure](#configure)
+    - [getChromeDriver](#getChromeDriver)
+    - [closeDriver](#closeDriver)
+    - [wrapDriver](#wrapDriver)
+    - [context](#context)
 - [Maintainer](#Maintainer)
 - [Contributing](#Contributing)
 - [License](#License)
@@ -37,8 +38,8 @@ npm install -D @guinie/selenium
 To run sequences in Selenium context, a browserDriver is required. A Chrome browserDriver can be created using `getChromeDriver`. This driver can be used for basic setup of the tests:
 
 ```
-const seleniumContext = require('@guinie/selenium')
-const { getChromeDriver } = seleniumContext
+const { configure } = require('@guinie/selenium')
+const { context, getChromeDriver } = configure()
 
 const chromeDriver = getChromeDriver()
 await chromeDriver.get('http://localhost:3000')
@@ -47,8 +48,8 @@ await chromeDriver.get('http://localhost:3000')
 Be sure to close the browser driver session when the tests are done using `closeDriver`:
 
 ```
-const seleniumContext = require('@guinie/selenium')
-const { closeDriver } = seleniumContext
+const { configure } = require('@guinie/selenium')
+const { closeDriver } = configure()
 
 await closeDriver(chromeDriver)
 ```
@@ -58,8 +59,8 @@ await closeDriver(chromeDriver)
 A browser driver can be wrapped into a driverState, which is needed for guinie sequences:
 
 ```
-const seleniumContext = require('@guinie/selenium')
-const { wrapDriver } = seleniumContext
+const { configure } = require('@guinie/selenium')
+const { wrapDriver } = configure()
 
 const seleniumDriverState = wrapDriver(chromeDriver)
 ```
@@ -70,13 +71,15 @@ Selenium context is passed to raw sequences:
 
 ```
 const { applyContext } = require('@guinie/common')
-const seleniumContext = require('@guinie/selenium')
+const { configure } = require('@guinie/selenium')
 const frontpageActions = require('./front-page.unit.test.js')
 
+const { context } = configure()
+
 // This...
-const login = frontpageActions.login(seleniumContext)
-const createTodo = frontpageActions.createTodo(seleniumContext)
-const loginAndCreateTodo = frontpageActions.loginAndCreateTodo(seleniumContext)
+const login = frontpageActions.login(context)
+const createTodo = frontpageActions.createTodo(context)
+const loginAndCreateTodo = frontpageActions.loginAndCreateTodo(context)
 
 // ...is equivalent to this
 const [
@@ -87,7 +90,7 @@ const [
   frontpageActions.login,
   frontpageActions.createTodo,
   frontpageActions.loginAndCreateTodo
-)(seleniumContext)
+)(context)
 ```
 
 ---
@@ -114,29 +117,35 @@ const finalDriverState = await loginAsCarlAndCreateShoppingTodo(seleniumDriverSt
 
 ## API
 
-### seleniumContext
+### configure
 
-`Object` - the entire module exported by `@guinie/selenium`
+`config => ({ wrapDriver, context, getChromeDriver, closeDriver })`
 
-Contains necessary functions to run guinie sequences in selenium testing context.
+Returns an object containing a Selenium context and other utility functions.
 
-### wrapDriver
-
-`browserDriver => seleniumDriverState`
-
-Returns a driverState for the specified browser test driver.
-
-### getChromeDriver
+#### getChromeDriver
 
 `() => chromeBrowserDriver`
 
 Returns a browserDriver for chrome browser.
 
-### closeDriver
+#### closeDriver
 
 `browserDriver => browserDriver`
 
 Closes the session for the given browserDriver.
+
+#### wrapDriver
+
+`browserDriver => seleniumDriverState`
+
+Returns a driverState for the specified browser test driver.
+
+#### context
+
+`Object` - the entire module exported by `@guinie/selenium`
+
+Contains necessary functions to run guinie sequences in selenium testing context.
 
 ## Maintainer
 

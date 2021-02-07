@@ -16,10 +16,11 @@ A library of utilities for running defined sequences of interaction on React com
 - [Install](#Install)
 - [Usage](#Usage)
 - [API](#API)
-  - [reactContext](#reactContext)
   - [makeTestIdProps](#makeTestIdProps)
   - [withTestId](#withTestId)
-  - [wrapDriver](#wrapDriver)
+  - [configure](#configure)
+    - [wrapDriver](#wrapDriver)
+    - [context](#context)
 - [Maintainer](#Maintainer)
 - [Contributing](#Contributing)
 - [License](#License)
@@ -77,13 +78,15 @@ The object exported by the module is in itself the unit testing context for Reac
 
 ```
 const { applyContext } = require('@guinie/common')
-const reactContext = require('@guinie/react')
+const { configure } = require('@guinie/react')
 const frontpageActions = require('./front-page.unit.test.js')
 
+const { context } = configure()
+
 // This...
-const login = frontpageActions.login(reactContext)
-const createTodo = frontpageActions.createTodo(reactContext)
-const loginAndCreateTodo = frontpageActions.loginAndCreateTodo(reactContext)
+const login = frontpageActions.login(context)
+const createTodo = frontpageActions.createTodo(context)
+const loginAndCreateTodo = frontpageActions.loginAndCreateTodo(context)
 
 // ...is equivalent to this
 const [
@@ -94,18 +97,7 @@ const [
   frontpageActions.login,
   frontpageActions.createTodo,
   frontpageActions.loginAndCreateTodo
-)(reactContext)
-```
-
-Hint: the common methods are also part of the React context:
-
-```
-// No need for common module...
-// const { applyContext } = require('@guinie/common')
-const reactContext = require('@guinie/react')
-
-// ...when the same can be read from the `@guinie/react` module
-const { applyContext } = reactContext
+)(context)
 ```
 
 ---
@@ -126,6 +118,8 @@ const loginAsCarlAndCreateShoppingTodo = loginAndCreateTodo({
 Finally, produce a driver state with the `wrapDriver` -function and pass the driver state in to the parameterized test to execute the sequence:
 
 ```
+const { wrapDriver } = reactContext
+
 // Create a new driver state for `AppWithFakeApi` component
 const driverState = wrapDriver(<AppWithFakeApi />)
 
@@ -139,14 +133,12 @@ The functions in `reactContext` can be used to find elements or manipulate the d
 
 ```
 const {
-  _findElement,
   findElement,
   click,
 } = reactContext
 
 // Find elements
-const element1 = _findElement(finalDriverState, 'my-component--1')
-const element2 = findElement('my-component--2')(finalDriverState)
+const element = findElement('my-component--2')(finalDriverState)
 
 // Run interactions
 const click('my-button--1')(finalDriverState)
@@ -157,12 +149,6 @@ const rendered = finalDriverState.driver
 ```
 
 ## API
-
-### reactContext
-
-`Object` - the entire module exported by `@guinie/react`
-
-Contains necessary functions to run guinie sequences in react unit testing context.
 
 ### makeTestIdProps
 
@@ -176,11 +162,23 @@ A utility function for producing test ID props.
 
 A utility function for applying test IDs to React component instances.
 
-### wrapDriver
+### configure
+
+`config => ({ wrapDriver, context })`
+
+Returns an object containing a React unit testing context and other utility functions.
+
+#### wrapDriver
 
 `ReactComponentInstance => ReactDriverState`
 
 Returns a driverState for React unit test context.
+
+#### context
+
+`Object` - the entire module exported by `@guinie/react`
+
+Contains necessary functions to run guinie sequences in React unit testing context.
 
 ## Maintainer
 
