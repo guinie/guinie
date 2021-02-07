@@ -65,7 +65,7 @@ const MyParentComponent = props => {
 
 ---
 
-The object exported by the module is in itself the unit testing context for React unit tests. This context should be passed in to interaction sequences first in test files. This can be done as a simple function call or by using the `applyContext` helper function:
+The context for React unit tests is created using the `configure` function exported by the module. This context should be passed in to interaction sequences first in test files. This can be done as a simple function call or by using the `applyContext` helper function:
 
 ```
 const { applyContext } = require('@guinie/common')
