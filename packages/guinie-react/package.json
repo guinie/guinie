@@ -1,6 +1,6 @@
 {
   "name": "@guinie/react",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A library of utilities for running defined sequences of interaction on React components in a unit testing context.",
   "main": "src/index.js",
   "scripts": {
@@ -16,11 +16,13 @@
     "unit"
   ],
   "contributors": [
-    { "name": "Joel Luukka" }
+    {
+      "name": "Joel Luukka"
+    }
   ],
   "license": "ISC",
   "dependencies": {
-    "@guinie/common": "0.1.0",
+    "@guinie/common": "^0.2.0",
     "@testing-library/react": "11.2.3",
     "@testing-library/user-event": "12.6.2"
   },

@@ -1,11 +1,11 @@
 {
   "name": "guinie-example",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "dependencies": {
-    "@guinie/react": "0.1.0",
-    "@guinie/react-testid": "0.1.0",
-    "@guinie/selenium": "0.1.0",
+    "@guinie/react": "^0.2.0",
+    "@guinie/react-testid": "^0.2.0",
+    "@guinie/selenium": "^0.2.0",
     "@material-ui/core": "4.11.3",
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/react": "11.2.5",
@@ -46,7 +46,9 @@
     "selenium-webdriver": "4.0.0-alpha.8"
   },
   "contributors": [
-    { "name": "Joel Luukka" }
+    {
+      "name": "Joel Luukka"
+    }
   ],
   "repository": {
     "type": "git",

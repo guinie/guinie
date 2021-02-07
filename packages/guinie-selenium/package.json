@@ -1,6 +1,6 @@
 {
   "name": "@guinie/selenium",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A library of utilities for running defined sequences of interaction on a live web page using Selenium.",
   "main": "src/index.js",
   "scripts": {
@@ -15,11 +15,13 @@
     "frontend"
   ],
   "contributors": [
-    { "name": "Joel Luukka" }
+    {
+      "name": "Joel Luukka"
+    }
   ],
   "license": "ISC",
   "dependencies": {
-    "@guinie/common": "0.1.0",
+    "@guinie/common": "^0.2.0",
     "selenium-webdriver": "4.0.0-alpha.8"
   },
   "devDependencies": {
