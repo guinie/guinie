@@ -1,0 +1,58 @@
+{
+  "name": "guinie-example_react--selenium",
+  "version": "0.2.0",
+  "private": true,
+  "dependencies": {
+    "@guinie/react": "^0.2.0",
+    "@guinie/react-testid": "^0.2.0",
+    "@guinie/selenium": "^0.2.0",
+    "@material-ui/core": "4.11.3",
+    "@testing-library/jest-dom": "5.11.9",
+    "@testing-library/react": "11.2.5",
+    "@testing-library/user-event": "12.6.3",
+    "react-scripts": "4.0.1",
+    "web-vitals": "0.2.4"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0",
+    "react-dom": ">=16.9.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "test:gui": "react-scripts test --watchAll=false --testMatch ./**/*.test.gui.js",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "selenium-webdriver": "4.0.0-alpha.8"
+  },
+  "contributors": [
+    {
+      "name": "Joel Luukka"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guinie/guinie.git",
+    "directory": "packages/guinie-example"
+  }
+}
