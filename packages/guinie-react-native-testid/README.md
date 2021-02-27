@@ -1,6 +1,6 @@
-# @guinie/react-testid
+# @guinie/react-native-testid
 
-A library of utilities for producing test IDs for React components.
+A library of utilities for producing test IDs for React Native components.
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ A library of utilities for producing test IDs for React components.
 ## Install
 
 ```
-npm install @guinie/react-testid
+npm install @guinie/react-native-testid
 ```
 
 ## API
@@ -33,7 +33,7 @@ A utility function for producing test ID props.
 Example:
 
 ```
-const { makeTestIdProps } = require('@guinie/react-testid')
+const { makeTestIdProps } = require('@guinie/react-native-testid')
 
 const MyButton = props => { ... }
 
