@@ -53,6 +53,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/guinie/guinie.git",
-    "directory": "packages/guinie-example"
+    "directory": "packages/guinie-example_react--selenium"
   }
 }
