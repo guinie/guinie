@@ -29,6 +29,13 @@ npm run test
 Run device tests:
 
 ```
+# Start metro server
+react-native start
+
+# Start Appium server
+npx appium
+
+# Run device tests
 npm run test:gui
 ```
 
