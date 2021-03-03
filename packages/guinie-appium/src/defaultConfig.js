@@ -6,6 +6,8 @@ const DEFAULT_FIND_OPTIONS = {
   timeout: 10000
 }
 
+const byAccessibilityId = id => new By('accessibility id', id)
+
 const findElementAndroid = (driverState, testId, options = {}) => {
   const _options = Object.assign({}, DEFAULT_FIND_OPTIONS, options)
   return driverState.driver.wait(until.elementLocated(By.xpath(`//*[@content-desc="${testId}"]`)), _options.timeout)
@@ -13,7 +15,7 @@ const findElementAndroid = (driverState, testId, options = {}) => {
 
 const findElementIOS = (driverState, testId, options = {}) => {
   const _options = Object.assign({}, DEFAULT_FIND_OPTIONS, options)
-  return driverState.driver.wait(until.elementLocated(By.xpath(`//*[@testID="${testId}"]`)), _options.timeout)
+  return driverState.driver.wait(until.elementLocated(byAccessibilityId(testId)), _options.timeout)
 }
 
 const selectFinder = (() => {

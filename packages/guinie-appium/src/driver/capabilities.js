@@ -7,6 +7,7 @@ const PLATFORM = {
 
 const DEVICE = {
   IPHONE_5S: 'iPhone 5s',
+  IPHONE_12: 'iPhone 12',
   IPHONE: 'iPhone Simulator',
   ANDROID: 'Android Emulator',
 }
@@ -24,15 +25,15 @@ const EMPTY_TEMPLATE = {
 const ios92 = {
   'appium-version': APPIUM_VERSION,
   platformName: PLATFORM.IOS,
-  platformVersion: '10.1',
-  deviceName: DEVICE.IPHONE_5S,
+  platformVersion: '14.4',
+  deviceName: DEVICE.IPHONE_12,
 };
 
 const ios81 = {
   'appium-version': APPIUM_VERSION,
   platformName: PLATFORM.IOS,
-  platformVersion: '10.1',
-  deviceName: DEVICE.IOS,
+  platformVersion: '14.4',
+  deviceName: DEVICE.IPHONE,
 };
 
 const android18 = {

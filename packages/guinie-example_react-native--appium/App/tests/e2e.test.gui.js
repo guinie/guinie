@@ -2,8 +2,18 @@ import { configure, sequence, applyContext, utils, CAPABILITIES } from '@guinie/
 import loginActions from '../views/Login/Login.test-actions'
 import todoActions from '../views/TodoMain/TodoMain.test-actions'
 
-const ANDROID_APP_PATH = utils.getAndroidApkPath()
-const { android19 } = CAPABILITIES
+const { ios92, android19 } = CAPABILITIES
+
+const getIosDriver = () => getDriver({
+  device: ios92,
+  app: './guinie-appium-example.ipa',
+})
+
+const getAndroidDriver = () => getDriver({
+  device: android19,
+  app: utils.getAndroidApkPath(),
+})
+
 
 // Produce a selenium context with default config
 const {
@@ -40,11 +50,7 @@ describe('Todo app', () => {
 
   beforeAll(async function() {
     // Produce a chrome driver
-    driver = await getDriver({
-      device: android19,
-      app: ANDROID_APP_PATH,
-    })
-
+    driver = await getAndroidDriver()
     return driver
   });
 
