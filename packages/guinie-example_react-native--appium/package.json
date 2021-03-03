@@ -1,6 +1,6 @@
 {
   "name": "guinie-example_react-native--appium",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "scripts": {
     "android": "react-native run-android",
@@ -11,8 +11,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@guinie/react-native": "0.2.0",
-    "@guinie/react-native-testid": "0.2.0",
+    "@guinie/react-native": "0.3.0",
+    "@guinie/react-native-testid": "0.3.0",
     "@react-native-community/checkbox": "0.5.7",
     "react": "17.0.1",
     "react-dom": "17.0.1",
@@ -23,7 +23,7 @@
     "@babel/core": "7.8.4",
     "@babel/runtime": "7.8.4",
     "@carimus/metro-symlinked-deps": "1.1.0",
-    "@guinie/appium": "0.2.0",
+    "@guinie/appium": "0.3.0",
     "@react-native-community/eslint-config": "1.1.0",
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/jest-native": "3.4.3",
