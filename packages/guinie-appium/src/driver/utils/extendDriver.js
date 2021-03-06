@@ -1,4 +1,4 @@
-import { defineCommand } from './defineCommand'
+const { defineCommand } = require('./defineCommand')
 
 const CUSTOM_COMMANDS = [
   { name: 'resetApp', method: 'POST', path: 'appium/app/reset' },
