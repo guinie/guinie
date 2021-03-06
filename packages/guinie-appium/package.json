@@ -1,6 +1,6 @@
 {
   "name": "@guinie/appium",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A library of utilities for running defined sequences of interaction on mobile devices using Appium.",
   "main": "src/index.js",
   "scripts": {
