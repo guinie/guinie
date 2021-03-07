@@ -9,12 +9,12 @@ const defineCommand = ({
   const executor = driver.getExecutor()
   executor.defineCommand(name, method, `/session/:session/${path}`)
   driver[name] = async params => {
-    const command = new Command('resetApp')
+    const command = new Command(name)
 
     const session = await driver.getSession()
     command.setParameter('session', session.getId())
 
-    Object.entries((key, value) => {
+    Object.entries(params).forEach(([key, value]) => {
       command.setParameter(key, value)
     })
 
