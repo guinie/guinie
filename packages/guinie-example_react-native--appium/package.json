@@ -23,7 +23,7 @@
     "@babel/core": "7.8.4",
     "@babel/runtime": "7.8.4",
     "@carimus/metro-symlinked-deps": "1.1.0",
-    "@guinie/appium": "0.2.1",
+    "@guinie/appium": ">=0.2.1",
     "@react-native-community/eslint-config": "1.1.0",
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/jest-native": "3.4.3",
