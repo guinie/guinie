@@ -5,6 +5,7 @@ import {
   TextInput,
   Text,
   StyleSheet,
+  ScrollView,
 } from 'react-native'
 import Checkbox from '../../components/Checkbox'
 import { makeTestIdProps } from '@guinie/react-native-testid'
@@ -62,6 +63,7 @@ export const TodoMain = ({ user }) => {
           {...makeTestIdProps('add-todo-form--submit')}
         />
       </View>
+      <ScrollView {...makeTestIdProps('todo-list--container')}>
       {
         todos.map((todo, i) => {
           return (
@@ -86,6 +88,7 @@ export const TodoMain = ({ user }) => {
           )
         })
       }
+      </ScrollView>
     </View>
   )
 }

@@ -1,3 +1,5 @@
+const { Device } = require('selenium-webdriver/lib/input')
+
 const {
   intersect,
   scaleCenter,
@@ -46,13 +48,25 @@ const getScrollRect = async (driver, element) => {
   return scrollRect
 }
 
-const scroll = (driver, start, end) => {
+const wheelScroll = (origin, deltaX, deltaY) => ({
+  type: 'scroll',
+  origin,
+  x: 0,
+  y: 0,
+  deltaX: Math.floor(deltaX),
+  deltaY: Math.floor(deltaY),
+})
+
+const wheelPause = duration => ({
+  type: 'pause',
+  duration,
+})
+
+const scroll = async (driver, element, deltaX, deltaY) => {
+  const Wheel = new Device('wheel', 'Default wheel')
+  const action = wheelScroll(element, -deltaX, -deltaY)
   return driver.actions()
-    .move(start)
-    .press()
-    .move(end)
-    .move(end)
-    .release()
+    .insert(Wheel, action)
     .perform()
 }
 
@@ -62,7 +76,10 @@ const defineSafeScrollMethod = (getStartPointFromRect, getEndPointFromRect) => a
   const startPoint = getStartPointFromRect(scrollRect)
   const endPoint = getEndPointFromRect(scrollRect)
 
-  return scroll(driver, startPoint, endPoint)
+  const offsetX = endPoint.x - startPoint.x
+  const offsetY = endPoint.y - startPoint.y
+
+  return scroll(driver, element, offsetX, offsetY)
 }
 
 const scrollUp = defineSafeScrollMethod(getPointTop, getPointBottom)

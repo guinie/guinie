@@ -50,9 +50,13 @@
       "name": "Joel Luukka"
     }
   ],
+  "bugs": {
+    "url": "https://github.com/guinie/guinie/issues"
+  },
+  "homepage": "https://github.com/guinie/guinie/tree/main/packages/guinie-example_react--selenium",
   "repository": {
     "type": "git",
-    "url": "https://github.com/guinie/guinie.git",
+    "url": "git+https://github.com/guinie/guinie.git",
     "directory": "packages/guinie-example_react--selenium"
   }
 }

@@ -21,7 +21,7 @@ const App = () => {
   const [view, setView] = useState('login')
   const [user, setUser] = useState('')
   return (
-    <Box my="10%" mx="20%">
+    <Box py="10%" px="20%" height="100vh" display="flex" flexDirection="column">
       {
         renderView({
           view,
