@@ -1,4 +1,4 @@
-# @guinie/selenium
+# @guinie/appium
 
 A library of utilities for running defined sequences of interaction on mobile devices using Appium.
 

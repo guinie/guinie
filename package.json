@@ -2,7 +2,7 @@
   "name": "guinie",
   "private": true,
   "scripts": {
-    "publish": "./node_modules/.bin/lerna publish --exact"
+    "publish": "./node_modules/.bin/lerna publish --exact --no-push && git push --tags"
   },
   "devDependencies": {
     "@babel/runtime": "7.13.7",
