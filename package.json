@@ -1,6 +1,9 @@
 {
   "name": "guinie",
   "private": true,
+  "scripts": {
+    "publish": "./node_modules/.bin/lerna publish --exact"
+  },
   "devDependencies": {
     "@babel/runtime": "7.13.7",
     "lerna": "3.22.1",

@@ -1,7 +1,8 @@
 {
-  "name": "@guinie/react-testid",
-  "version": "0.2.1",
-  "description": "A library of utilities for producing test IDs for React components.",
+  "name": "@guinie/selenium-interactions",
+  "private": true,
+  "version": "0.2.0",
+  "description": "A library of interactions for Selenium based Guinie drivers",
   "main": "src/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha './tests/**/*.test.js'"
@@ -11,10 +12,9 @@
     "test",
     "testing",
     "library",
-    "component",
-    "react",
-    "frontend",
-    "unit"
+    "gui",
+    "selenium",
+    "frontend"
   ],
   "contributors": [
     {
@@ -22,22 +22,14 @@
     }
   ],
   "license": "ISC",
-  "peerDependencies": {
-    "react": ">=16.0.0",
-    "react-dom": ">=16.0.0"
-  },
-  "devDependencies": {
-    "chai": "4.2.0",
-    "mocha": "8.2.1"
-  },
   "bugs": {
     "url": "https://github.com/guinie/guinie/issues"
   },
-  "homepage": "https://github.com/guinie/guinie/tree/main/packages/guinie-react-testid",
+  "homepage": "https://github.com/guinie/guinie/tree/main/packages/guinie-selenium-interactions",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/guinie/guinie.git",
-    "directory": "packages/guinie-react-testid"
+    "directory": "packages/guinie-selenium-interactions"
   },
   "publishConfig": {
     "access": "public"

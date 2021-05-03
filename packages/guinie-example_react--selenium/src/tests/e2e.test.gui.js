@@ -32,6 +32,14 @@ const [
   todoActions.removeTodo,
 )(context)
 
+// Scroll action
+const scroll = params => {
+  const { scrollDown } = context
+  return sequence(
+    scrollDown(params.container)
+  )
+}
+
 describe('Todo app', () => {
   let driver
 
@@ -70,4 +78,53 @@ describe('Todo app', () => {
       return
     }
   })
+
+  it('should add a lot of stuff and scroll down', async () => {
+    // Get a wrapped selenium driverState
+    const driverState = wrapDriver(driver)
+
+    // Produce a complex sequence of actions and run it on selenium driverState
+    const finalDriverState = await sequence(
+      login({ username: 'Jekke' }),
+      addTodo({ title: 'Fix it later' }),
+      addTodo({ title: 'Fix it 30' }),
+      addTodo({ title: 'Fix it 29' }),
+      addTodo({ title: 'Fix it 28' }),
+      addTodo({ title: 'Fix it 27' }),
+      addTodo({ title: 'Fix it 26' }),
+      addTodo({ title: 'Fix it 25' }),
+      addTodo({ title: 'Fix it 24' }),
+      addTodo({ title: 'Fix it 23' }),
+      addTodo({ title: 'Fix it 22' }),
+      addTodo({ title: 'Fix it 21' }),
+      addTodo({ title: 'Fix it 20' }),
+      addTodo({ title: 'Fix it 19' }),
+      addTodo({ title: 'Fix it 18' }),
+      addTodo({ title: 'Fix it 17' }),
+      addTodo({ title: 'Fix it 16' }),
+      addTodo({ title: 'Fix it 15' }),
+      addTodo({ title: 'Fix it 14' }),
+      addTodo({ title: 'Fix it 13' }),
+      addTodo({ title: 'Fix it 12' }),
+      addTodo({ title: 'Fix it 11' }),
+      addTodo({ title: 'Fix it 10' }),
+      addTodo({ title: 'Fix it  9' }),
+      addTodo({ title: 'Fix it  8' }),
+      addTodo({ title: 'Fix it  7' }),
+      addTodo({ title: 'Fix it  6' }),
+      addTodo({ title: 'Fix it  5' }),
+      addTodo({ title: 'Fix it  4' }),
+      addTodo({ title: 'Fix it  3' }),
+      addTodo({ title: 'Fix it  2' }),
+      addTodo({ title: 'Fix it  1' }),
+    )(driverState)
+
+    await scroll({ container: 'todo-list--container' })(driverState)
+    await new Promise(resolve => setTimeout(() => resolve(), 500))
+
+    // Verify that the desired UI state is reached
+    const scrollTop = await driverState.driver.executeScript('return document.querySelector("*[data-testid=todo-list--container]").scrollTop')
+
+    return expect(scrollTop).toBeGreaterThan(0)
+  }, 600000)
 })

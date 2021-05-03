@@ -44,7 +44,7 @@ export const TodoMain = ({ user }) => {
     setTodos(newTodos)
   }
   return (
-    <Box>
+    <Box display="flex" flexDirection="column" style={{ overflowY: 'hidden' }}>
       <T variant="h1">{`${user}'s todos`}</T>
       <Box display="flex" alignItems="center" flexDirection="column">
         <Box display="flex" justifyContent="center" width="50%">
@@ -60,7 +60,13 @@ export const TodoMain = ({ user }) => {
           >Add todo</Button>
         </Box>
       </Box>
-      <Box display="flex" alignItems="center" flexDirection="column">
+      <Box
+        display="flex"
+        alignItems="center"
+        flexDirection="column"
+        style={{ overflowY: 'auto' }}
+        {...makeTestIdProps(`todo-list--container`)}
+      >
         {
           todos.map((todo, i) => (
             <Box key={`todo-item--${todo.title}--${i}`} display="flex" width="50%" flexDirection="row">

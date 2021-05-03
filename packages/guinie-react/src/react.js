@@ -31,6 +31,12 @@ const click = config => (testId, options) => async driverState => {
   return driverState
 }
 
+const scroll = config => params => async driverState => driverState
+const scrollUp = config => params => async driverState => driverState
+const scrollDown = config => params => async driverState => driverState
+const scrollLeft = config => params => async driverState => driverState
+const scrollRight = config => params => async driverState => driverState
+
 const configure = config => {
   const _config = Object.assign({}, defaultConfig, config)
   return {

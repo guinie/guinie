@@ -26,10 +26,15 @@ const type = config => (testId, text, options) => async driverState => {
 
 const click = config => (testId, options) => async driverState => {
   const element = await _findElement(config, driverState, testId, options)
-  console.log(element)
   await fireEvent.press(element)
   return driverState
 }
+
+const scroll = config => params => async driverState => driverState
+const scrollUp = config => params => async driverState => driverState
+const scrollDown = config => params => async driverState => driverState
+const scrollLeft = config => params => async driverState => driverState
+const scrollRight = config => params => async driverState => driverState
 
 const configure = config => {
   const _config = Object.assign({}, defaultConfig, config)
