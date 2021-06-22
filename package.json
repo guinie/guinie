@@ -1,17 +1,21 @@
 {
   "name": "guinie",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "publish": "./node_modules/.bin/lerna publish --exact --no-push && git push && git push --tags"
+    "publish": "./node_modules/.bin/lerna publish --exact --no-push && git push && git push --tags",
+    "bump:minor": "npm version minor",
+    "postversion": "npm run version --workspaces $npm_package_version"
   },
-  "devDependencies": {
-    "@babel/runtime": "7.13.7",
-    "lerna": "3.22.1",
-    "react": "17.0.1",
-    "react-dom": "17.0.1",
-    "react-native": "0.63.4",
-    "react-test-renderer": "17.0.1"
-  },
+  "workspaces": [
+    "packages/guinie-appium",
+    "packages/guinie-common",
+    "packages/guinie-react",
+    "packages/guinie-react-native",
+    "packages/guinie-react-native-testid",
+    "packages/guinie-react-testid",
+    "packages/guinie-selenium"
+  ],
   "description": "Guinie is a set of libraries of GUI testing utilities, enabling the definition of composeable UI interaction sequences that are runnable in various UI testing contexts.",
   "contributors": [
     {
