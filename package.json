@@ -5,7 +5,7 @@
   "scripts": {
     "publish": "./node_modules/.bin/lerna publish --exact --no-push && git push && git push --tags",
     "bump:minor": "npm version minor",
-    "postversion": "npm version --workspaces $npm_package_version"
+    "preversion": "npm version --workspaces $npm_package_version"
   },
   "workspaces": [
     "packages/guinie-appium",
