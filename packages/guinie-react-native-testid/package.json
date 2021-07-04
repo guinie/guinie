@@ -26,8 +26,8 @@
   ],
   "license": "ISC",
   "peerDependencies": {
-    "react": ">=16.9.0",
-    "react-native": ">=0.60.0"
+    "react": ">=0.13.0",
+    "react-native": "*"
   },
   "devDependencies": {
     "chai": "4.2.0",
