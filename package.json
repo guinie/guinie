@@ -7,7 +7,8 @@
     "version:major": "npm version major",
     "version:minor": "npm version minor",
     "version:patch": "npm version patch",
-    "version": "npm version --workspaces $npm_package_version && git add -A packages"
+    "version": "npm version --workspaces $npm_package_version && git add -A packages",
+    "test": "./node_modules/.bin/jest ./tests/index.test.js"
   },
   "workspaces": [
     "packages/guinie-appium",
@@ -29,5 +30,12 @@
     "type": "git",
     "url": "https://github.com/guinie/guinie.git",
     "directory": "packages/babel-cli"
+  },
+  "devDependencies": {
+    "jest": "27.0.6",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-native": "0.64.2",
+    "react-test-renderer": "17.0.2"
   }
 }
