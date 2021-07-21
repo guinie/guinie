@@ -1,6 +1,6 @@
 {
   "name": "@guinie/react-testid",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A library of utilities for producing test IDs for React components.",
   "main": "src/index.js",
   "types": "types.d.ts",

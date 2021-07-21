@@ -1,6 +1,6 @@
 {
   "name": "@guinie/common",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "A library of common higher-order functions for defining sequences of UI interactions and composing sequences into more complex behavior.",
   "main": "src/index.js",
   "types": "types.d.ts",
