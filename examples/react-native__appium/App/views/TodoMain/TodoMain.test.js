@@ -56,7 +56,6 @@ describe('TodoMain component', () => {
     // Run the parameterized action on react driverState
     await act(async () => {
       await addShoppingTodo(driverState)
-      driverState.driver.debug()
       await toggleShoppingTodo(driverState)
     })
 

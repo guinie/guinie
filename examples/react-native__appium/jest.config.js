@@ -6,8 +6,8 @@ module.exports = {
     'node_modules/(?!(jest-)?react-native|@react-native-community|@react-navigation)',
   ],
   moduleNameMapper: {
-    '^@guinie/react-native$': '<rootDir>/../guinie-react-native/src/index.js',
-    '^@guinie/react-native-testid$': '<rootDir>/../guinie-react-native-testid/src/index.js',
+    '^@guinie/react-native$': '<rootDir>/../../packages/guinie-react-native/src/index.js',
+    '^@guinie/react-native-testid$': '<rootDir>/../../packages/guinie-react-native-testid/src/index.js',
     '^react$': '<rootDir>/node_modules/react',
     '^react-native$': '<rootDir>/node_modules/react-native',
   }

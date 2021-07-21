@@ -1,4 +1,4 @@
-const APPIUM_VERSION = '1.6'
+const APPIUM_VERSION = '1.20'
 
 const PLATFORM = {
   IOS: 'iOS',

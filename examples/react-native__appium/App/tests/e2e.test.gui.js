@@ -139,9 +139,9 @@ describe('Todo app', () => {
     await scroll({ container: 'todo-list--container' })(driverState)
 
     // Verify that the desired UI state is reached
-    const row = await findElement('todo-list--Fix it later--title', { timeout: 500 })(driverState)
-    const isDisplayed = await row.isDisplayed()
-    expect(isDisplayed).toBe(true)
+    const row = findElement('todo-list--Fix it  1--title', { timeout: 500 })(driverState)
+    const isDisplayed = await row.isDisplayed().then(val => val ? val : false).catch(() => false)
+    expect(isDisplayed).toBe(false)
 
     return new Promise(resolve => setTimeout(() => resolve(), 5000))
   }, 600000)

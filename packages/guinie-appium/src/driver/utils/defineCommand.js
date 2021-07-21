@@ -8,7 +8,7 @@ const defineCommand = ({
 }) => {
   const executor = driver.getExecutor()
   executor.defineCommand(name, method, `/session/:session/${path}`)
-  driver[name] = async params => {
+  driver[name] = async (params = {}) => {
     const command = new Command(name)
 
     const session = await driver.getSession()
