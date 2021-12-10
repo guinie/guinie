@@ -1,20 +1,5 @@
 # Guinie
 
-<blockquote>
-  <p>
-    Guinie asked the weary Journeyman for what she needed the most.
-  </p>
-  <p>
-    "Something to help me verify the behavior of my components...", the Journeyman began.
-  </p>
-  <p>
-    "...Something to help me compose more complex behavior. And to help me describe the current status of a system".
-  </p>
-  <p>
-    Guinie drew words and diagrams in the air and then disappeared. The Journeyman was left with a vague memory of Guinie and the wisdom with which he was trusted with for a brief moment.
-  </p>
-</blockquote>
-
 Guinie is a set of libraries of GUI testing utilities, enabling the definition of composeable UI interaction sequences that are runnable in various UI testing contexts.
 
 ## Mission
