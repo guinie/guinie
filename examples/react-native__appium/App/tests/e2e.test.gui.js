@@ -4,6 +4,14 @@ import todoActions from '../views/TodoMain/TodoMain.test-actions'
 
 const { ios92, android19 } = CAPABILITIES
 
+// Produce a selenium context with default config
+const {
+  wrapDriver,
+  getDriver,
+  closeDriver,
+  context,
+} = configure()
+
 const getIosDriver = () => getDriver({
   device: ios92,
   app: './guinie-appium-example.ipa',
@@ -14,14 +22,6 @@ const getAndroidDriver = () => getDriver({
   app: utils.getAndroidApkPath(),
 })
 
-
-// Produce a selenium context with default config
-const {
-  wrapDriver,
-  getDriver,
-  closeDriver,
-  context,
-} = configure()
 
 // Get the context bound `findElement` function from context
 const { findElement } = context
@@ -57,7 +57,7 @@ describe('Todo app', () => {
   let firstTest = true
 
   beforeAll(async function() {
-    // Produce a chrome driver
+    // Produce an android driver
     driver = await getAndroidDriver()
     return driver
   });

@@ -11,7 +11,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@guinie/react-native": "file:../../packages/guinie-react-native",
     "@guinie/react-native-testid": "file:../../packages/guinie-react-native-testid",
     "@react-native-community/checkbox": "0.5.7",
     "react": "17.0.1",
@@ -24,17 +23,19 @@
     "@babel/runtime": "7.8.4",
     "@carimus/metro-symlinked-deps": "1.1.0",
     "@guinie/appium": "file:../../packages/guinie-appium",
+    "@guinie/react-native": "file:../../packages/guinie-react-native",
     "@react-native-community/eslint-config": "1.1.0",
     "@testing-library/jest-dom": "5.11.9",
     "@testing-library/jest-native": "3.4.3",
     "@testing-library/react-native": "7.1.0",
-    "appium": "1.20.2",
+    "appium": "1.22.2",
     "babel-jest": "25.1.0",
     "babel-plugin-module-resolver": "4.1.0",
     "eslint": "6.5.1",
     "jest": "25.1.0",
     "metro-react-native-babel-preset": "0.59.0",
-    "react-test-renderer": "16.13.1"
+    "react-test-renderer": "16.13.1",
+    "selenium-webdriver": "4.1.0"
   },
   "contributors": [
     {

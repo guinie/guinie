@@ -23,8 +23,10 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "@guinie/common": "0.2.2",
-    "selenium-webdriver": "4.0.0-alpha.8"
+    "@guinie/common": "2.0.1"
+  },
+  "peerDependencies": {
+    "selenium-webdriver": "4.x"
   },
   "devDependencies": {
     "chai": "4.2.0",
