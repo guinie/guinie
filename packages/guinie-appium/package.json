@@ -24,7 +24,7 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "@guinie/common": "2.0.1"
+    "@guinie/common": "3.0.0"
   },
   "peerDependencies": {
     "selenium-webdriver": "4.x"
